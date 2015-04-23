@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423194707) do
+ActiveRecord::Schema.define(version: 20150423201931) do
 
   create_table "rewards", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150423194707) do
     t.integer  "redeem_points",    default: 0
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.string   "password_digest"
   end
 
 end
