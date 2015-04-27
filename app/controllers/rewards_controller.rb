@@ -29,7 +29,7 @@ class RewardsController < ApplicationController
       flash[:cheap] = "You don't have enough points to claim that reward."
     else
       user.available_points -= reward.point_value
-      user.redeemed_points += reward.point_value
+      user.redeem_points += reward.point_value
       user.rewards << reward
       user.save
     end

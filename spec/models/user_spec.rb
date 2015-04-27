@@ -18,14 +18,4 @@ RSpec.describe User, type: :model do
     expect(user.redeem_points).to be(0)
   end
 
-  it 'is invalid without a password' do
-    user.password = nil
-    expect(user).to_not be_valid
-  end
-
-
-  it 'is invalid without a password confirmation' do
-    user.password_confirmation = nil
-    expect(user).to_not be_valid
-  end
 end
