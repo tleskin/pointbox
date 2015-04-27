@@ -43,3 +43,7 @@ group :development, :test do
   gem 'launchy'
   gem 'capybara'
 end
+
+group :produciton do
+  gem 'pg'
+end
