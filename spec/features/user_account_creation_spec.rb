@@ -6,7 +6,7 @@ RSpec.describe "user account creation" do
 
     it "creates an account" do
       visit new_user_path
-
+      save_and_open_page
       fill_in "Username", with: "krusty"
       fill_in "Password", with: "password"
       fill_in "Password confirmation", with: "password"

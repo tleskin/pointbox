@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423201931) do
+ActiveRecord::Schema.define(version: 20150427025222) do
 
   create_table "rewards", force: :cascade do |t|
     t.string   "name"
     t.integer  "point_value"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "user_rewards", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "reward_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -27,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150423201931) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.string   "password_digest"
+    t.integer  "role",             default: 0
   end
 
 end

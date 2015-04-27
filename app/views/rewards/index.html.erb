@@ -1,0 +1,32 @@
+<h1>Rewards</h1>
+
+<h3>You have <%= current_user.available_points %> points available for use.</h3>
+  <div class="row">
+    <% @rewards.each do |reward| %>
+      <div class="rewards col-md-3">
+        <p><%= reward.name %></p>
+        <p>Point Value: <%= reward.point_value %></p>
+
+
+        <%= form_for(:admin, url: reward_path(current_user.id), method: :put) do |f| %>
+        <%= f.hidden_field :reward, value: reward.id %>
+        <%= f.submit "Choose This Reward" %>
+        <% end %>
+
+        <% if current_user.admin? %>
+        <br>
+        <p><%= link_to "Edit this Reward", edit_reward_path(current_user.id) %></p>
+        <p><%= link_to "Delete this Reward", reward_path(reward), method: :delete %></p>
+        <% end %>
+
+      </div>
+    <% end  %>
+  <div class="reward-button col-md-12">
+    <p>
+      <% if current_user.admin? %>
+        <%= link_to "Create a New Reward", new_reward_path %>
+      <% end %>
+    </p>
+  </div>
+  </div>
+</table>

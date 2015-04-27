@@ -1,0 +1,31 @@
+
+<h1>Change <%= @user.username %>'s Points </h1>
+
+<p>
+  Current Available Points:
+  <%= @user.available_points %>
+</p>
+
+<%= form_for(:admin, url: admin_path, method: :patch) do |f| %>
+  <% f.hidden_field :user_id, :value => @user.id %>
+<p>
+  <%= f.label 'Update Available Points:' %>
+  <%= f.text_field :available_points %>
+</p>
+<p>
+  Current Redeemed Points:
+  <%= @user.redeem_points %>
+</p>
+
+<p>
+  <%= f.label 'Redeemed Points:' %>
+  <%= f.text_field :redeem_points %>
+</p>
+<%= f.submit "Update Points" %>
+<% end %>
+
+
+<%= form_for(:admin, url: admin_path, method: :delete) do |f| %>
+<% f.hidden_field :user_id, :value => @user.id %>
+<%= f.submit "Delete User's Points" %>
+<% end %>

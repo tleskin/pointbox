@@ -1,0 +1,16 @@
+<h1> <%= current_user.username %>'s Points</h1>
+<h4>
+Available Points: <%= @available %>
+</h4>
+<h4>
+Redeemed Points: <%= @redeemed %>
+</h4>
+
+<h4>Redeemed Rewards:</h4>
+
+  <% @redeemed_rewards.each do |reward| %>
+  <div class="rewards col-sm-3">
+  <p><%= reward.name %></p>
+
+  </div>
+  <% end %>
